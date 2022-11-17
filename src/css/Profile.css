@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&display=swap');
+
+body .body1{
+    background-color: #2E67F8;
+}
+
+.Top-Profilepage
+{
+    text-align: left; 
+    margin-left: 60px;
+}
+
+.Text-top-profile
+{
+    padding-top: 10px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color:white;
+}
+
+.Main-Profilepage
+{
+    background-color: white;
+    width: 100%;
+    height: 640px;
+}
+.Box-Main-Profilepage
+{
+    display: inline-flex;
+    margin: 40px 90px 0px;
+    /* background-color: white; */
+    /* width: 100%;
+    height: 800px; */
+    
+}

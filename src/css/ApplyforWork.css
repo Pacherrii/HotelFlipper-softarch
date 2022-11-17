@@ -1,0 +1,38 @@
+body .body1{
+    background-color: #2E67F8;
+}
+
+.keeperfix{
+    position: fixed;
+    bottom: 0;
+    left: 95px;
+    /* width: 600px; */
+    height: 630px;
+}
+
+.Form-ApplyforWork
+{
+    margin-left: 700px;
+    width: 610px;
+    /* border: 3px solid #73AD21; */
+    padding: 30px;
+}
+
+.join-with-us
+{
+    margin-top: 15px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 50px;
+    font-weight: 600;
+    color:white;
+}
+
+.join-with-us-text
+{
+    margin-top: 0px;
+    margin-bottom: 35px;
+    font-family: 'Mitr', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    color:white;
+}
