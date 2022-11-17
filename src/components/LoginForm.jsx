@@ -44,28 +44,30 @@ const LoginForm = () => {
                 <div className="Head-Login">เข้าสู่ระบบ</div>
                 <Form className="Form-Login" action="#" onSubmit={submitHandler}>
                 {/* <Form action="#"> */}
-                    <div className="input-email-box">
-                        <img src={usericon} alt="usericon" className="usericon"/>
-                        <input type="text" placeholder="Email" name="username" id="username" onChange={handleChange}/>
-                        {/* user_account_profile_icon */}
-                    </div>
-                    <div className="input-password-box">
-                        <img src={password} alt="usericon" className="usericon"/>
-                        <input type="password" placeholder="Password" name="password" id="password" onChange={handleChange}/>
-                    </div>
+                    <div className="Scale-input-Login">
+                        <div className="input-email-box">
+                            <img src={usericon} alt="usericon" className="usericon"/>
+                            <input type="text" placeholder="Email" name="username" id="username" onChange={handleChange}/>
+                            {/* user_account_profile_icon */}
+                        </div>
+                        <div className="input-password-box">
+                            <img src={password} alt="usericon" className="usericon"/>
+                            <input type="password" placeholder="Password" name="password" id="password" onChange={handleChange}/>
+                        </div>
 
-                    <Link to='/ForgetPassword'>
-                        <botton>
-                            <p className="forgetpass">
-                                ลืมรหัสผ่านใช่ไหม?
-                            </p>
-                        </botton>
-                    </Link>
+                        <Link to='/ForgetPassword'>
+                            <botton>
+                                <p className="forgetpass">
+                                    ลืมรหัสผ่านใช่ไหม?
+                                </p>
+                            </botton>
+                        </Link>
 
-                    <button type="submit" className="bttn-Login">เข้าสู่ระบบ Hotel Flipper</button>
-                    
+                        <button type="submit" className="bttn-Login">เข้าสู่ระบบ Hotel Flipper</button>
+                        <Link to="/SignupPage"><button type="submit" className="bttn-gotoSignup">ลงทะเบียนสมาชิกใหม่</button></Link>
+                    </div>
                 </Form>
-                <Link to="/SignupPage"><button type="submit" className="bttn-gotoSignup">ลงทะเบียนสมาชิกใหม่</button></Link>
+                
                 {(noti != "")?(<div className="Login_ERROR">{noti}</div>):""}
                 
             </div>

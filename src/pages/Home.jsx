@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import NavbarHotel from "../component/Navbar";
+import NavbarHotel from "../components/Navbar";
 
 const Home = () => {
     return (
