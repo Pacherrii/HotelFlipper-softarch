@@ -66,7 +66,7 @@ const LoginForm = () => {
                     
                 </Form>
                 <Link to="/SignupPage"><button type="submit" className="bttn-gotoSignup">ลงทะเบียนสมาชิกใหม่</button></Link>
-                {(noti != "")?(<div className="Login__Noti">{noti}</div>):""}
+                {(noti != "")?(<div className="Login_ERROR">{noti}</div>):""}
                 
             </div>
         </div>

@@ -24,7 +24,7 @@ const SignupForm = () => {
 
     const Signup = personal=>{
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        const regexPass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,20}$/;
+        const regexPass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,32}$/;
         console.log(personal) 
             
         if(personal.email==""){
@@ -34,10 +34,10 @@ const SignupForm = () => {
             setNoti("กรุณากรอกรหัสผ่าน")
             }
         else if(!regexEmail.test(personal.email)){
-            setNoti("อีเมลไม่ถูกต้อง")
+            setNoti("อีเมลของท่านไม่ถูกต้อง")
             }
         else if(!regexPass.test(personal.password)&&(personal.password!="")){
-            setNoti("รหัสต้องมีอย่างต่ำ 8 ตัวอักษรตัวใหญ่ตัวเล็กและตัวเลขอย่างต่ำ 1 ตัว")
+            setNoti("รหัสผ่านต้องมีอย่างต่ำ 8 ตัวอักษร พิมพ์ใหญ่พิมพ์เล็กและตัวเลขอย่างต่ำ 1 ตัว")
             }
     }
 
@@ -150,7 +150,7 @@ const SignupForm = () => {
                
                 </Form>
                 
-                {(noti != "")?(<div className="Register__Noti">{noti}</div>):""}
+                {(noti != "")?(<div className="Register_ERROR">{noti}</div>):""}
             </div>
         </div>
     )

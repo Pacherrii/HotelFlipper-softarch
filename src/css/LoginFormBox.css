@@ -146,11 +146,11 @@
     border: 1px solid #ABA9BC;
 }
 
-.Login__Noti{
+.Login_ERROR{
     width: 100%;
     margin-top: 8px;
     font-size: 18px;
     font-family: 'Mitr', sans-serif;
-    color:rgb(244, 68, 68);
+    color: #E8003F;
     font-weight: 400;
 }
