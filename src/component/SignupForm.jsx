@@ -41,9 +41,25 @@ const SignupForm = () => {
             }
     }
 
+    const HotelSignup = Hoteldata=>{
+        const regexTelnum = /((\+66|0)(\d{1,2}\-?\d{3}\-?\d{3,4}))|((\+๖๖|๐)([๐-๙]{1,2}\-?[๐-๙]{3}\-?[๐-๙]{3,4}))/gm
+        // console.log(Hoteldata)
+
+        if(Hoteldata.hotelname==""){
+            setNoti("กรุณากรอกชื่อโรงแรม")
+            }
+        else if(Hoteldata.tel==""){
+            setNoti("กรุณากรอกเบอร์โทรศัพท์")
+            }
+        else if(!regexTelnum.test(Hoteldata.tel)){
+            setNoti("เบอร์โทรศัพท์กรอกเฉพาะตัวเลขเท่านั้น")}
+            
+    }
+
     const submitHandler = (e) =>{
         e.preventDefault();
         Signup(personal);
+        HotelSignup(Hoteldata);
         setError(validate(personal));
         setIsSubmit(true)
     }

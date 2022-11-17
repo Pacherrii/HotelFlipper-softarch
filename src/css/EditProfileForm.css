@@ -18,6 +18,13 @@
     color:#464555;
 }
 
+.Line-HotelProfile-Edit
+{
+    margin: 8px 0px 30px;
+    border-top: 1px solid #464555;
+
+}
+
 .Form-Edit ::placeholder {
     color: #464555 ;
    }
@@ -233,5 +240,5 @@
     font-family: 'Mitr', sans-serif;
     font-size: 16px;
     color: #E8003F;
-    margin-top: -19px;
+    margin-top: -23px;
 }
