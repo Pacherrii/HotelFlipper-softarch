@@ -63,10 +63,24 @@ const EditProfileForm = () => {
             
     }
 
+    const AddrUpdate = HotelAddr =>{
+        const regexPostcode = /^([1-9]\d{4}|\d[1-9]\d{3}|\d{2}[1-9]\d{2}|\d{3}[1-9]\d|\d{4}[1-9])$/
+        
+        console.log(HotelAddr)
+
+        if (HotelAddr.zipcode=""){
+            setNoti("กรุณากรอกรหัสไปรษณีย์")
+        }
+        else if (!regexPostcode.test(HotelAddr.zipcode)) {
+            setNoti("กรุณากรอกรหัสไปรษณีย์ที่ถูกต้อง")
+        }
+    }
+
     const submitHandler = (e) =>{
         e.preventDefault();
         ProfileUpdate(personal);
         HotelUpdate(Hoteldata);
+        AddrUpdate(HotelAddr);
         setError(validate(personal));
         setIsSubmit(true)
     }
@@ -84,7 +98,8 @@ const EditProfileForm = () => {
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const regexPass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,32}$/;
         const regexTelnum = /((\+66|0)(\d{1,2}\-?\d{3}\-?\d{3,4}))|((\+๖๖|๐)([๐-๙]{1,2}\-?[๐-๙]{3}\-?[๐-๙]{3,4}))/gm
-        
+        const regexPostcode = /^([1-9]\d{4}|\d[1-9]\d{3}|\d{2}[1-9]\d{2}|\d{3}[1-9]\d|\d{4}[1-9])$/
+
         if (!values.email){
             errors.email ="Email is required"
         }else if (!regexEmail.test(values.email)) {
@@ -115,6 +130,12 @@ const EditProfileForm = () => {
             errors.tel ="Telnum is required"
         }else if (!regexTelnum.test(values.tel)) {
             errors.tel = "This is not a valid telnum format!";}
+
+        if (!values.zipcode){
+            errors.zipcode ="zipcode is required"
+        }else if (!regexPostcode.test(values.zipcode)) {
+            errors.zipcode = "This is not a valid zipcode format!";
+        }
 
         return errors;
     };

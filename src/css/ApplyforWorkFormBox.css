@@ -36,6 +36,18 @@
     border-top: 5px solid #2E67F8;
 }
 
+.for-IMG-Birthday
+{
+    margin-top: 8px;
+}
+.HBD-reg
+{
+    /* margin-left: 0px; */
+    font-family: 'Mitr', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color:#464555;
+}
 .BoxFormApply ::placeholder {
     color: #464555 ;
    }
@@ -92,7 +104,7 @@
     background-color: #C2D3FF;
 }
 
-.one-form-reg input:focus{
+.one-form-reg input:optional:focus{
     border: 1px solid #A1B7FF;
     background-color: #E7EEFF ;
     color: black;
@@ -154,7 +166,7 @@
 
 .celendar{
     background-color: #C2D3FF;
-    width: 438px;
+    width: 356px;
     height: 48px;
     border: #C2D3FF;
     border-radius: 10px;

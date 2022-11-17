@@ -1,5 +1,5 @@
 import React, { useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import '../css/ApplyforWorkFormBox.css'
 import document from "../assets/document.svg"
@@ -22,12 +22,36 @@ const ApplyforWorkForm = () => {
 
     const RegforWork = info =>{
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        
         console.log(info)
-        if(info.Email==""&&info.Fname!=""){
+
+        if(info.Fname==""){
+            setNotification("กรุณากรอกชื่อจริง")
+            }
+        else if(info.Lname==""){
+            setNotification("กรุณากรอกนามสกุล")
+            }
+        else if(info.Email==""&&info.Fname!=""){
             setNotification("กรุณากรอกอีเมลของท่าน")
+        }
+        else if(info.PhoneNum==""){
+            setNotification("กรุณากรอกเบอร์โทรศัพท์ของท่าน")
         }
         else if(!regexEmail.test(info.Email)){
             setNotification("อีเมลไม่ถูกต้อง")
+        }
+    }
+
+    const AddrforWork = psnAddr =>{
+        const regexPostcode = /^([1-9]\d{4}|\d[1-9]\d{3}|\d{2}[1-9]\d{2}|\d{3}[1-9]\d|\d{4}[1-9])$/
+        
+        console.log(psnAddr)
+
+        if (psnAddr.Ppostcode=""){
+            setNotification("กรุณากรอกรหัสไปรษณีย์")
+        }
+        else if (!regexPostcode.test(psnAddr.Ppostcode)) {
+            setNotification("กรุณากรอกรหัสไปรษณีย์ที่ถูกต้อง")
         }
     }
 
@@ -44,18 +68,26 @@ const ApplyforWorkForm = () => {
     const validate=(values)=>{
         const errors ={};
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return errors;
+        const regexPostcode = /^([1-9]\d{4}|\d[1-9]\d{3}|\d{2}[1-9]\d{2}|\d{3}[1-9]\d|\d{4}[1-9])$/
 
         if (!values.Email){
             errors.Email ="Email is required"
         }else if (!regexEmail.test(values.Email)) {
             errors.Email = "This is not a valid email format!";
         }
+        if (!values.Ppostcode){
+            errors.Ppostcode ="Ppostcode is required"
+        }else if (!regexPostcode.test(values.Ppostcode)) {
+            errors.Ppostcode = "This is not a valid postcode format!";
+        }
+
+        return errors;
     };
 
     const submitHandler = (e) =>{
         e.preventDefault();
         RegforWork(info);
+        AddrforWork(psnAddr);
         checkAge(birthday);
         setFormError(validate(info));
         setIsSubmit(true)
@@ -104,11 +136,11 @@ const ApplyforWorkForm = () => {
                 <Form className="Form-ApplyWork" onSubmit={submitHandler}>
                     <div className="two-form-reg">
                         {/* <label> ชื่อจริง* </label> */}
-                        <input type="text" placeholder="ชื่อจริง*" name="Fname" id="Fname" value={info.Fname} onChange={handleChange} required/>
+                        <input type="text" placeholder="ชื่อจริง*" name="Fname" id="Fname" value={info.Fname} onChange={handleChange}/>
                     </div>
                     <div className="two-form-reg">
                         {/* <label> นามสกุล* </label> */}
-                        <input type="text" placeholder="นามสกุล*" name="Lname" id="Lname" value={info.Lname} onChange={handleChange} required/>
+                        <input type="text" placeholder="นามสกุล*" name="Lname" id="Lname" value={info.Lname} onChange={handleChange}/>
                         <br />
                     </div>
 
@@ -124,7 +156,8 @@ const ApplyforWorkForm = () => {
                         วัน-เดือน-ปีเกิด </label> */}
                     <div className="for-Birthday-form">
                         <div className="for-IMG-Birthday">
-                            <img src={cake} alt="#" height = {40}/>
+                            {/* <img src={cake} alt="#" height = {40}/> */}
+                            <label className="HBD-reg">เดือน/วัน/ปีเกิด</label>
                         </div>
                         <div className="birthday-form-reg">
                     
@@ -134,7 +167,7 @@ const ApplyforWorkForm = () => {
                                 placeholder="Select Birthday"
                                 value={birthday}
                                 onChange={(event) => setBirthday(event.target.value)} required/>
-                            <p className="text-red-600">{formError.Birthday}</p>
+                            {/* <p className="text-red-600">{formError.Birthday}</p> */}
                         </div>
                     </div>
 
