@@ -8,9 +8,13 @@ import NavbarHotel from "../component/Navbar";
 const SignupPage =() =>{
     return(
         <div>
-            <NavbarHotel />
-            <div className="Form-SignupPage">
-                < SignupForm/>
+            <div className="bg-roomservice">
+                <div className="bg-roomfade-login">
+                    <NavbarHotel />
+                    <div className="Form-SignupPage">
+                        < SignupForm/>
+                    </div>
+                </div>
             </div>
         </div>
     )

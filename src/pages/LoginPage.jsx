@@ -8,9 +8,13 @@ const LoginPage =() =>{
     return(
         
         <div>
-            <NavbarHotel />
-            <div className="Form-LoginPage">
-                <LoginForm/>
+            <div className="bg-roomservice">
+                <div className="bg-roomfade-login">
+                    <NavbarHotel />
+                    <div className="Form-LoginPage">
+                        <LoginForm/>
+                    </div>
+                </div>
             </div>
         </div>
     )
