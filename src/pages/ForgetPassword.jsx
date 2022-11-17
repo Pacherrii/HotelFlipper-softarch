@@ -64,7 +64,7 @@ const ForgetPassword = () =>{
                                     </div>
                             <div className="group-PasswordReset">
                                 <label >อีเมลของคุณ <br /></label>
-                                <input type="text" name="email" value={details.email} onChange={handleChange}/>
+                                <input className="input-email-forgot" type="text" name="email" value={details.email} onChange={handleChange} required/>
                             </div>
                             
                             <button type="submit" className="bttn-submitforget">ยืนยัน</button>
