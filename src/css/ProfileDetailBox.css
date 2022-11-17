@@ -6,7 +6,7 @@
     border: 1px solid #464555 ;
     border-radius: 20px;
     width: 520px ;
-    height: 516px;
+    height: 480px;
     box-shadow: 2px 2px 17px 7px rgba(0, 0, 0, 0.1);
 }
 
@@ -23,7 +23,7 @@
     padding-left: 30px;
     padding-top: 10px;
     font-family: 'Mitr', sans-serif;
-    font-size: 33px;
+    font-size: 30px;
     font-weight: 400;
     color:#464555;
 }
