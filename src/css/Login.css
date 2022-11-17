@@ -1,9 +1,15 @@
+/* body .body1
+{
+    text-align: center;
+} */
+
 .Form-LoginPage
 {
     margin: auto;
     width: 610px;
     /* border: 3px solid #73AD21; */
     padding: 30px;
+    text-align: center;
 }
 
 .bg-roomfade-login

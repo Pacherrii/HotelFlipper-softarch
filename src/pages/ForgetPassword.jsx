@@ -2,7 +2,7 @@ import React , { useState,useEffect,useRef} from "react";
 import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import '../css/ForgetPassword.css'
-import NavbarHotel from "../component/Navbar";
+import NavbarHotel from "../components/Navbar";
 
 const ForgetPassword = () =>{
 

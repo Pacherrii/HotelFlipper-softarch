@@ -1,7 +1,7 @@
 import React, { useState,useEffect}  from "react";
 import { Link } from "react-router-dom";
-import LoginForm from "../component/LoginForm";
-import NavbarHotel from "../component/Navbar";
+import LoginForm from "../components/LoginForm";
+import NavbarHotel from "../components/Navbar";
 import '../css/Login.css';
 
 const LoginPage =() =>{

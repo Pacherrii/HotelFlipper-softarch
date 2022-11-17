@@ -1,9 +1,9 @@
 import React, {useEffect,useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
-import ApplyforWorkForm from "../component/ApplyforWorkForm";
+import ApplyforWorkForm from "../components/ApplyforWorkForm";
 import '../css/ApplyforWork.css'
 import keeper from "../assets/keeper.png"
-import NavbarHotel from "../component/Navbar";
+import NavbarHotel from "../components/Navbar";
 
 const ApplyforWork  = () => {
     return(

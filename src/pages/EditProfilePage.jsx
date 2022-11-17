@@ -1,8 +1,8 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import EditProfileForm from "../component/EditProfileForm";
+import EditProfileForm from "../components/EditProfileForm";
 import '../css/EditProfile.css';
-import NavbarHotel from "../component/Navbar";
+import NavbarHotel from "../components/Navbar";
 
 
 const EditProfilePage =() =>{
@@ -11,7 +11,7 @@ const EditProfilePage =() =>{
             <div className="bg-roomservice">
                 <div className="bg-roomfade-edit">
                     <NavbarHotel />
-                    <div className="Form-SignupPage">
+                    <div className="Form-EditPage">
                         < EditProfileForm/>
                     </div>
                 </div>
