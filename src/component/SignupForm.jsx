@@ -71,7 +71,7 @@ const SignupForm = () => {
             errors.password ="Password is required"
         }else if (values.password.length < 8) {
             errors.password = "Password must be more than 8 characters";
-        }else if (values.password.length > 20) {
+        }else if (values.password.length > 32) {
             errors.password = "Password cmust be less than 20 characters";
         }else if(!regexPass.test(values.password)){
             errors.password ="Password must contain at least 8 characters, 1 number, 1 upper and 1 lowercase"
@@ -111,7 +111,7 @@ const SignupForm = () => {
 
                     <div className="three-input-box-addr">
                     
-                        <input type="text" placeholder="บ้านเลขที่*" name="hotelno" id="hotelno" value={HotelAddr.hotelno} onChange={handleChange}/> 
+                        <input type="text" placeholder="บ้านเลขที่*" name="hotelno" id="hotelno" value={HotelAddr.hotelno} onChange={handleChange} required/> 
                     </div>
                     <div className="three-input-box-addr"> 
                         <input type="text" placeholder="ซอย*" name="soi" id="soi" value={HotelAddr.soi} onChange={handleChange}/>
@@ -122,19 +122,19 @@ const SignupForm = () => {
                     </div>
                     
                     <div className="two-input-box-dt">
-                        <input type="text" placeholder="แขวน/ตำบล*" name="subDistrict" id="subDistrict" value={HotelAddr.subDistrict} onChange={handleChange}/>
+                        <input type="text" placeholder="แขวน/ตำบล*" name="subDistrict" id="subDistrict" value={HotelAddr.subDistrict} onChange={handleChange} required/>
                     </div>
                     <div className="two-input-box-dt">
-                        <input type="text" placeholder="เขต/อำเภอ*" name="district" id="district" value={HotelAddr.district} onChange={handleChange}/> 
+                        <input type="text" placeholder="เขต/อำเภอ*" name="district" id="district" value={HotelAddr.district} onChange={handleChange} required/> 
                         <br/>
                     </div>
                     {/* province */}
                     <div className="two-input-box-city">
-                        <input type="text" placeholder="จังหวัด*" name="province" id="province" value={HotelAddr.province} onChange={handleChange}/> 
+                        <input type="text" placeholder="จังหวัด*" name="province" id="province" value={HotelAddr.province} onChange={handleChange} required/> 
                     </div>
                     {/* zipcode */}
                     <div className="two-input-box-city">
-                        <input type="text" placeholder="รหัสไปรษณีย์*" name="zipcode" id="zipcode" value={HotelAddr.zipcode} onChange={handleChange} /> 
+                        <input type="text" placeholder="รหัสไปรษณีย์*" name="zipcode" id="zipcode" value={HotelAddr.zipcode} onChange={handleChange} required/> 
                         <br/>
                     </div>
                 

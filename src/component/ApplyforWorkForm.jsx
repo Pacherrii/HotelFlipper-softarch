@@ -24,10 +24,20 @@ const ApplyforWorkForm = () => {
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         console.log(info)
         if(info.Email==""&&info.Fname!=""){
-            setNotification("กรุณากรอกอีเมล")
+            setNotification("กรุณากรอกอีเมลของท่าน")
         }
         else if(!regexEmail.test(info.Email)){
             setNotification("อีเมลไม่ถูกต้อง")
+        }
+    }
+
+    const checkAge = birthday =>{
+        console.log(birthday)
+        if(birthday==""){
+            setNotification("กรุณากรอก วัน เดือน ปีเกิดของท่าน")
+        }
+        else if (result < 18){
+            setNotification("ขออภัย! รับสมัครเฉพาะผู้ที่มีอายุ 20 ปีขึ้นไปเท่านั้น")
         }
     }
 
@@ -35,11 +45,18 @@ const ApplyforWorkForm = () => {
         const errors ={};
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return errors;
+
+        if (!values.Email){
+            errors.Email ="Email is required"
+        }else if (!regexEmail.test(values.Email)) {
+            errors.Email = "This is not a valid email format!";
+        }
     };
 
     const submitHandler = (e) =>{
         e.preventDefault();
         RegforWork(info);
+        checkAge(birthday);
         setFormError(validate(info));
         setIsSubmit(true)
     }
@@ -87,11 +104,11 @@ const ApplyforWorkForm = () => {
                 <Form className="Form-ApplyWork" onSubmit={submitHandler}>
                     <div className="two-form-reg">
                         {/* <label> ชื่อจริง* </label> */}
-                        <input type="text" placeholder="ชื่อจริง*" name="Fname" id="Fname" value={info.Fname} onChange={handleChange}/>
+                        <input type="text" placeholder="ชื่อจริง*" name="Fname" id="Fname" value={info.Fname} onChange={handleChange} required/>
                     </div>
                     <div className="two-form-reg">
                         {/* <label> นามสกุล* </label> */}
-                        <input type="text" placeholder="นามสกุล*" name="Lname" id="Lname" value={info.Lname} onChange={handleChange} />
+                        <input type="text" placeholder="นามสกุล*" name="Lname" id="Lname" value={info.Lname} onChange={handleChange} required/>
                         <br />
                     </div>
 
@@ -131,7 +148,7 @@ const ApplyforWorkForm = () => {
                     </div>
 
                     <div className="three-form-reg">
-                        <input type="text" placeholder="บ้านเลขที่*" name="Paddr" id="Paddr" value={psnAddr.Paddr} onChange={handleChange}/>
+                        <input type="text" placeholder="บ้านเลขที่*" name="Paddr" id="Paddr" value={psnAddr.Paddr} onChange={handleChange} required/>
                     </div>
                     <div className="three-form-reg">
                         <input type="text" placeholder="ซอย*" name="Palley" id="Palley" value={psnAddr.Palley} onChange={handleChange}/>
@@ -142,22 +159,23 @@ const ApplyforWorkForm = () => {
                     </div>
 
                     <div className="two-form-reg">
-                        <input type="text" placeholder="แขวน/ตำบล*" name="Pdistrict" id="Pdistrict" value={psnAddr.Pdistrict} onChange={handleChange}/>
+                        <input type="text" placeholder="แขวน/ตำบล*" name="Pdistrict" id="Pdistrict" value={psnAddr.Pdistrict} onChange={handleChange} required/>
                     </div>
                     <div className="two-form-reg">
-                        <input type="text" placeholder="เขต/อำเภอ*"  name="Pcity" id="Pcity" value={psnAddr.Pcity} onChange={handleChange}/>
+                        <input type="text" placeholder="เขต/อำเภอ*"  name="Pcity" id="Pcity" value={psnAddr.Pcity} onChange={handleChange} required/>
                         <br/>
                     </div>
 
                     <div className="one-form-reg">
-                        <input type="text" placeholder="จังหวัด*" name="Pprovince" id="Pprovince" value={psnAddr.Pprovince} onChange={handleChange}/>
+                        <input type="text" placeholder="จังหวัด*" name="Pprovince" id="Pprovince" value={psnAddr.Pprovince} onChange={handleChange} required/>
                         <br/></div>
 
                     <div className="one-form-reg">
-                        <input type="text" placeholder="รหัสไปรษณีย์*" name="Ppostcode" id="Ppostcode" value={psnAddr.Ppostcode} onChange={handleChange}/>
+                        <input type="text" placeholder="รหัสไปรษณีย์*" name="Ppostcode" id="Ppostcode" value={psnAddr.Ppostcode} onChange={handleChange} required/>
                         <br/></div>
 
                     <button type="submit" className="bttn-ApplyWork">ยืนยันข้อมูลและให้ Hotel Flipper ติดต่อกลับ</button>
+                    {(notification != "")?(<div className="Apply_ERROR">{notification}</div>):""}
                 </Form>
             </div>
 

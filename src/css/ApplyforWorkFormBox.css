@@ -3,7 +3,7 @@
 .BoxFormApply{
     background-color: #F8F8F8 ;
     width: 610px;
-    height: 724px;
+    height: 745px;
     border-radius: 20px;
 }
 
@@ -192,4 +192,14 @@
 .bttn-ApplyWork:active:after{
     background-color: #F8F8F8 ;
     border: 1px solid #2E67F8;
+}
+
+.Apply_ERROR
+{
+    width: 100%;
+    margin-top: 8px;
+    font-size: 18px;
+    font-family: 'Mitr', sans-serif;
+    color: #E8003F;
+    font-weight: 400;
 }
