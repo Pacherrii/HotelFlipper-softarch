@@ -8,6 +8,7 @@ import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import ProfilePage from './pages/ProfilePage';
 import ForgetPassword from './pages/ForgetPassword';
+import EditProfilePage from './pages/EditProfilePage';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path='/ApplyforWork' element={ <ApplyforWork/>}/>
           <Route path='/ProfilePage' element={<ProfilePage/>}/>
           <Route path='/ForgetPassword' element={<ForgetPassword/>}/>
+          <Route path='/EditProfilePage' element={<EditProfilePage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

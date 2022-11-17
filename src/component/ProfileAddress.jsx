@@ -48,11 +48,11 @@ const ProfileAddress = (props) =>{
                         </div>
                     </div>
                     <div className="for-bttn-edit-HotelAD">
-                        <div className="Line-HotelDT-deco"></div>
+                        {/* <div className="Line-HotelDT-deco"></div>
                    
                         <button className="bttn-edit-HetelAD">
                         แก้ไขข้อมูลที่อยู่
-                        </button>
+                        </button> */}
                     </div>                   
             </div>
 

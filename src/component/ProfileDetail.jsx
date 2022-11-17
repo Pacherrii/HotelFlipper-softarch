@@ -57,10 +57,10 @@ const ProfileDetail  = (props) =>{
                             {currentHdetail.tel}
                         </div>
                     </div>
-                    <div className="Line-HotelDT-deco"></div>
+                    {/* <div className="Line-HotelDT-deco"></div>
                     <button className="bttn-edit-HetelDT">
                         แก้ไขข้อมูลโรงแรม
-                    </button>
+                    </button> */}
                     
                 </div>
         </div>

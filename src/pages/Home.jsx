@@ -30,6 +30,14 @@ const Home = () => {
                     ลงทะเบียนเป็นสมาชิก
                 </botton>
             </Link>
+            <h1> แก้ไขหน่อยดีไหม </h1>
+            <Link to='/EditProfilePage'>
+                <botton>
+                    แก้ไขข้อมูลนะจ๊ะ
+                </botton>
+            </Link>
+
+           
 
            
         </div>

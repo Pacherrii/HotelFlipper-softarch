@@ -30,18 +30,25 @@ const ProfilePage = () =>{
                     โปรไฟล์
                 </div>
             </div>
-            <div className="Main-Profilepage">
-                <div className="Box-Main-Profilepage">
-                    {/* <ProfileDetail/> */}
-                    { HotelDetaildemo.map((item) => (
-                        <div ><ProfileDetail hdetail={item}/></div> ))}
+            <div className="Supermain-Profilepage">
+                <div className="Main-Profilepage">
+                    <div className="Box-Main-Profilepage">
+                        {/* <ProfileDetail/> */}
+                        { HotelDetaildemo.map((item) => (
+                            <div ><ProfileDetail hdetail={item}/></div> ))}
+                    </div>
+                    <div className="Box-Main-Profilepage">
+                        {/* <ProfileAddress/> */}
+                        
+                        { HotelAddressdemo.map((addr) => (
+                            <div ><ProfileAddress haddress={addr}/></div> ))}
+                    </div>  
                 </div>
-                <div className="Box-Main-Profilepage">
-                    {/* <ProfileAddress/> */}
-                    
-                    { HotelAddressdemo.map((addr) => (
-                        <div ><ProfileAddress haddress={addr}/></div> ))}
-                </div>    
+                <Link to='/EditProfilePage'>
+                    <button className="bttn-edit-HetelDT">
+                                แก้ไขข้อมูลโรงแรม
+                    </button>  
+                </Link>
             </div>
             <Footer />
         </div>

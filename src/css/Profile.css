@@ -19,11 +19,11 @@ body .body1{
     color:white;
 }
 
-.Main-Profilepage
+.Supermain-Profilepage
 {
     background-color: white;
     width: 100%;
-    height: 640px;
+    height: 680px;
 }
 .Box-Main-Profilepage
 {
@@ -32,5 +32,30 @@ body .body1{
     /* background-color: white; */
     /* width: 100%;
     height: 800px; */
+}
+
+.bttn-edit-HetelDT{
+    background-color: #2E67F8 ;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    padding: 15px;
+    width: 259px;
+    display: inline-block;
+    font-size: 25px;
+    font-family: 'Mitr', sans-serif;
+    font-weight: 500;
+    color: white;
+    transition-duration: 0.4s;
+    margin-top: 23px;
+}
+
+.bttn-edit-HetelDT:hover{
+    background-color: #5B81FF;
+}
+
     
+.bttn-edit-HetelDT:active:after{
+    background-color: #F8F8F8 ;
+    border: 1px solid #2E67F8;
 }
