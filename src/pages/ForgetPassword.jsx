@@ -52,29 +52,33 @@ const ForgetPassword = () =>{
         return errors;
     }
     return(
-        <div className="BodyBox">
-            <NavbarHotel />
-            <div className="for-Formforget">
-                <Form onSubmit={submitHandler}>
-                    <div className="box-forget">
-                            <div className="forgetpass-text">ลืมรหัสผ่านใช่ไหม ?</div>
-                            <div className="sendmail-text">กรุณาป้อนอีเมลของคุณ เพื่อส่งรหัสผ่านใหม่ของคุณทางอีเมล
+        // <div className="BodyBox">
+            <div className="bg-img">
+                <div className="bg-roomfade-forgot">
+                <NavbarHotel />
+                    <div className="for-Formforget">
+                        <Form onSubmit={submitHandler}>
+                            <div className="box-forget">
+                                    <div className="forgetpass-text">ลืมรหัสผ่านใช่ไหม ?</div>
+                                    <div className="sendmail-text">กรุณาป้อนอีเมลของคุณ เพื่อส่งรหัสผ่านใหม่ของคุณทางอีเมล
+                                    </div>
+                            <div className="group-PasswordReset">
+                                <label >อีเมลของคุณ <br /></label>
+                                <input type="text" name="email" value={details.email} onChange={handleChange}/>
                             </div>
-                    <div className="group-PasswordReset">
-                        <label >อีเมลของคุณ <br /></label>
-                        <input type="text" name="email" value={details.email} onChange={handleChange}/>
-                    </div>
-                    
-                    <button type="submit" className="bttn-submitforget">ยืนยัน</button>
-                    <Link to='/LoginPage'>
-                        <button className="bttn-backtoLogin">กลับไปเข้าสู่ระบบ</button>
-                    </Link>
-                    {(noti != "")?(<div className="ResetPass__Noti">{noti}</div>):""}
-                    </div>
-                    
-                </Form>  
-            </div>      
-        </div>
+                            
+                            <button type="submit" className="bttn-submitforget">ยืนยัน</button>
+                            <Link to='/LoginPage'>
+                                <button className="bttn-backtoLogin">กลับไปเข้าสู่ระบบ</button>
+                            </Link>
+                            {(noti != "")?(<div className="ResetPass__Noti">{noti}</div>):""}
+                            </div>
+                            
+                        </Form>  
+                    </div>  
+                </div>
+            </div>    
+        // </div>
         
     )
 }
