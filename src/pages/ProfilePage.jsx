@@ -7,7 +7,7 @@ import NavbarHotel from "../components/Navbar";
 import Footer from "../components/Footer";
 import HotelDetaildemo from "./HotelDetaildemo";
 import HotelAddressdemo from "./HotelAddressdemo";
-import EditProfileAddress from "../components/EditProfileAddress";
+// import EditProfileAddress from "../components/EditProfileAddress";
 
 const ProfilePage = () =>{
     // const [editMode, setEditMode] = useState(false)
@@ -23,7 +23,7 @@ const ProfilePage = () =>{
     // }
     
     return(
-        <div className="body1">
+        <div className="bodyProfile">
             <NavbarHotel />
             <div className="Top-Profilepage">
                 <div className="Text-top-profile">

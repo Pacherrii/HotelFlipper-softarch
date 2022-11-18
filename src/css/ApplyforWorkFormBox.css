@@ -3,14 +3,14 @@
 .BoxFormApply{
     background-color: #F8F8F8 ;
     width: 610px;
-    height: 745px;
+    height: 725px;
     border-radius: 20px;
 }
 
 .for-Head-ApplyWork
 {
     display: inline-flex;
-    margin-top: 12px;
+    margin-top: 18px;
     width: 100%;
     text-align: left; 
     margin-left: 36px;
@@ -19,6 +19,7 @@
 .for-IMG-ApplyWork
 {
     margin-top: 8px;
+    margin-left: 10px;
 }
 
 .Head-ApplyWork{
@@ -32,7 +33,7 @@
 
 .Line-ApplyWork
 {
-    margin: 5px 0px 8px;
+    margin: 7px 0px 8px;
     border-top: 5px solid #2E67F8;
 }
 
@@ -52,15 +53,25 @@
     color: #464555 ;
    }
 
+.scale-two-reg
+{
+    /* background-color: violet; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* background-color: transparent; */
+    width: 528.5px;
+    margin: auto;
+}
 .two-form-reg{
     display: inline-block;
     position: relative;
-    padding: 15px 6.5px 0px;
+    padding: 15px 5px 0px;
 }
 
 .two-form-reg input{
     height: 48px;
-    width: 220px;
+    /* width: 220px; */
+    width: 100%;
     padding: 0 20px;
     border: 1px solid #C2D3FF;
     border-radius: 10px;
@@ -84,15 +95,22 @@
     color: black;
 }
 
+.scale-one-reg
+{
+    /* background-color: coral; */
+    width: 85%;
+    margin: auto;
+}
 .one-form-reg{
-    display: inline-block;
-    position: relative;
-    padding: 15px 6.5px 0px;
+    /* display: inline-block;
+    position: relative; */
+    margin-top: 15px;
 }
 
 .one-form-reg input{
     height: 48px;
-    width: 493px;
+    /* width: 493px; */
+    width: 100%;
     padding: 0 20px;
     border: 1px solid #C2D3FF;
     border-radius: 10px;
@@ -116,15 +134,27 @@
     color: black;
 }
 
+.scale-tree-reg
+{
+    /* background-color: yellow; */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    /* background-color: transparent; */
+    width: 528.5px;
+    margin: auto;
+
+}
+
 .three-form-reg{
     display: inline-block;
     position: relative;
-    padding: 15px 6.5px 0px;
+    padding: 15px 5px 0px;
 }
 
 .three-form-reg input{
     height: 48px;
-    width: 127px;
+    /* width: 127px; */
+    width: 100%;
     padding: 0 20px;
     border: 1px solid #C2D3FF;
     border-radius: 10px;
@@ -158,6 +188,8 @@
 {
     display: inline-flex;
     margin-top: 15px;
+    width: 85%;
+    /* background-color: aquamarine; */
 }
 /* .birthday-form-reg
 {
@@ -166,7 +198,8 @@
 
 .celendar{
     background-color: #C2D3FF;
-    width: 356px;
+    /* width: 356px; */
+    width: 160%;
     height: 48px;
     border: #C2D3FF;
     border-radius: 10px;
@@ -186,7 +219,8 @@
     border-radius: 10px;
     text-align: center;
     padding: 15px;
-    width: 533px;
+    /* width: 533px; */
+    width: 100%;
     display: inline-block;
     font-size: 25px;
     font-family: 'Mitr', sans-serif;

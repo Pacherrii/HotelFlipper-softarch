@@ -46,7 +46,7 @@ const LoginForm = () => {
                 {/* <Form action="#"> */}
                     <div className="Scale-input-Login">
                         <div className="input-email-box">
-                            <img src={usericon} alt="usericon" className="usericon"/>
+                            <img src={usericon} alt="usericon" className="usericon" />
                             <input type="text" placeholder="Email" name="username" id="username" onChange={handleChange}/>
                             {/* user_account_profile_icon */}
                         </div>

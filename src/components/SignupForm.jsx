@@ -130,59 +130,70 @@ const SignupForm = () => {
                 <div className="Head-Signup">ลงทะเบียนสมาชิกใหม่</div>
 
                 <Form className="Form-Signup" onSubmit={submitHandler} >
-                    <div className="one-input-box-user">
-                        <img src={usericon} alt="usericon" className="usericon"/>
-                        <input className="email-login" type="text" placeholder="Email" 
-                        name="email" id="email" value={personal.email} onChange={handleChange}></input>
-                    </div>
-                    <div className="one-input-box-user">
-                        <img src={password} alt="usericon" className="usericon"/>
-                        <input className="password-login" type="password" placeholder="Password" 
-                        name="password" id="password" value={personal.password} onChange={handleChange}></input>
+                    <div className="scale-one-box-user">
+                        <div className="one-input-box-user">
+                            <img src={usericon} alt="usericon" className="usericon"/>
+                            <input className="email-login" type="text" placeholder="Email" 
+                            name="email" id="email" value={personal.email} onChange={handleChange}></input>
+                        </div>
+                        <div className="one-input-box-user">
+                            <img src={password} alt="usericon" className="usericon"/>
+                            <input className="password-login" type="password" placeholder="Password" 
+                            name="password" id="password" value={personal.password} onChange={handleChange}></input>
+                        </div>
                     </div>
 
                     <div className="write-detail-hotel">
                         กรอกข้อมูลโรงแรมเพื่อใช้บริการ Hotel Flipper
                     </div>
-                    <div className="one-input-box">
-                        <input type="text" placeholder="ชื่อโรงแรม*" id="hotelname" name="hotelname" value={Hoteldata.hotelname} onChange={handleChange}/> <br/>
+                    <div className="scale-one-box-user">
+                        <div className="one-input-box">
+                            <input type="text" placeholder="ชื่อโรงแรม*" id="hotelname" name="hotelname" value={Hoteldata.hotelname} onChange={handleChange}/> <br/>
+                        </div>
+
+                        <div className="one-input-box">
+                            <input type="text" placeholder="เบอร์โทรศัพท์*" id="tel" name="tel" value={Hoteldata.tel} onChange={handleChange}/> <br/>
+                        </div>
                     </div>
 
-                    <div className="one-input-box">
-                        <input type="text" placeholder="เบอร์โทรศัพท์*" id="tel" name="tel" value={Hoteldata.tel} onChange={handleChange}/> <br/>
-                    </div>
-
-                    <div className="three-input-box-addr">
-                    
-                        <input type="text" placeholder="บ้านเลขที่*" name="hotelno" id="hotelno" value={HotelAddr.hotelno} onChange={handleChange} required/> 
-                    </div>
-                    <div className="three-input-box-addr"> 
-                        <input type="text" placeholder="ซอย*" name="soi" id="soi" value={HotelAddr.soi} onChange={handleChange}/>
-                    </div>
-                    <div className="three-input-box-addr">
-                        <input type="text" placeholder="ถนน*" name="road" id="road" value={HotelAddr.road} onChange={handleChange}/> 
-                        <br/>
+                    <div className="scale-three-box-user">
+                        <div className="three-input-box-addr">
+                        
+                            <input type="text" placeholder="บ้านเลขที่*" name="hotelno" id="hotelno" value={HotelAddr.hotelno} onChange={handleChange} required/> 
+                        </div>
+                        <div className="three-input-box-addr"> 
+                            <input type="text" placeholder="ซอย*" name="soi" id="soi" value={HotelAddr.soi} onChange={handleChange}/>
+                        </div>
+                        <div className="three-input-box-addr">
+                            <input type="text" placeholder="ถนน*" name="road" id="road" value={HotelAddr.road} onChange={handleChange}/> 
+                            <br/>
+                        </div>
                     </div>
                     
-                    <div className="two-input-box-dt">
-                        <input type="text" placeholder="แขวน/ตำบล*" name="subDistrict" id="subDistrict" value={HotelAddr.subDistrict} onChange={handleChange} required/>
-                    </div>
-                    <div className="two-input-box-dt">
-                        <input type="text" placeholder="เขต/อำเภอ*" name="district" id="district" value={HotelAddr.district} onChange={handleChange} required/> 
-                        <br/>
-                    </div>
-                    {/* province */}
-                    <div className="two-input-box-city">
-                        <input type="text" placeholder="จังหวัด*" name="province" id="province" value={HotelAddr.province} onChange={handleChange} required/> 
-                    </div>
-                    {/* zipcode */}
-                    <div className="two-input-box-city">
-                        <input type="text" placeholder="รหัสไปรษณีย์*" name="zipcode" id="zipcode" value={HotelAddr.zipcode} onChange={handleChange} required/> 
-                        <br/>
+                    <div className="scale-two-box-user">
+                        <div className="two-input-box-dt">
+                            <input type="text" placeholder="แขวน/ตำบล*" name="subDistrict" id="subDistrict" value={HotelAddr.subDistrict} onChange={handleChange} required/>
+                        </div>
+                        <div className="two-input-box-dt">
+                            <input type="text" placeholder="เขต/อำเภอ*" name="district" id="district" value={HotelAddr.district} onChange={handleChange} required/> 
+                            <br/>
+                        </div>
+                        </div>
+                    <div className="scale-two-box-user">
+                        {/* province */}
+                        <div className="two-input-box-city">
+                            <input type="text" placeholder="จังหวัด*" name="province" id="province" value={HotelAddr.province} onChange={handleChange} required/> 
+                        </div>
+                        {/* zipcode */}
+                        <div className="two-input-box-city">
+                            <input type="text" placeholder="รหัสไปรษณีย์*" name="zipcode" id="zipcode" value={HotelAddr.zipcode} onChange={handleChange} required/> 
+                            <br/>
+                        </div>
                     </div>
                 
-                    <button type="submit" className="bttn-Signup">ลงทะเบียน Hotel Flipper</button>
-
+                    <div className="scale-one-box-user">
+                        <button type="submit" className="bttn-Signup">ลงทะเบียน Hotel Flipper</button>
+                    </div>
 
                     <p className="goto-login">
                         มีบัญชีอยู่แล้ว -

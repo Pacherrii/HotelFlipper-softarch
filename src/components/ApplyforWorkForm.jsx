@@ -134,26 +134,19 @@ const ApplyforWorkForm = () => {
                 </div>
                 <div className="Line-ApplyWork"></div>
                 <Form className="Form-ApplyWork" onSubmit={submitHandler}>
-                    <div className="two-form-reg">
-                        {/* <label> ชื่อจริง* </label> */}
-                        <input type="text" placeholder="ชื่อจริง*" name="Fname" id="Fname" value={info.Fname} onChange={handleChange}/>
-                    </div>
-                    <div className="two-form-reg">
-                        {/* <label> นามสกุล* </label> */}
-                        <input type="text" placeholder="นามสกุล*" name="Lname" id="Lname" value={info.Lname} onChange={handleChange}/>
-                        <br />
+                    <div className="scale-two-reg">
+                        <div className="two-form-reg">
+                            {/* <label> ชื่อจริง* </label> */}
+                            <input type="text" placeholder="ชื่อจริง*" name="Fname" id="Fname" value={info.Fname} onChange={handleChange}/>
+                        </div>
+                        <div className="two-form-reg">
+                            {/* <label> นามสกุล* </label> */}
+                            <input type="text" placeholder="นามสกุล*" name="Lname" id="Lname" value={info.Lname} onChange={handleChange}/>
+                            <br />
+                        </div>
                     </div>
 
-                    
-                    {/* <input type="text" placeholder="วันเกิด" required /> */}
-                    
-                    {/* <input type="text" placeholder="เดือนเกิด" required /> */}
-                    
-                    {/* <input type="text" placeholder="ปีเกิด (พ.ศ.)" required/> */}
-                    {/* <br/> */}
 
-                    {/* <label className="block text-gray-darker text-md font-bold mt-4 mb-2" htmlFor="Birthday">
-                        วัน-เดือน-ปีเกิด </label> */}
                     <div className="for-Birthday-form">
                         <div className="for-IMG-Birthday">
                             {/* <img src={cake} alt="#" height = {40}/> */}
@@ -171,43 +164,52 @@ const ApplyforWorkForm = () => {
                         </div>
                     </div>
 
-                    <div className="one-form-reg">
-                        <input type="text" placeholder="เบอร์โทรศัพท์*" name="PhoneNum" id="PhoneNum" value={info.PhoneNum} onChange={handleChange}/>
+                    <div className="scale-one-reg">
+                        <div className="one-form-reg">
+                            <input type="text" placeholder="เบอร์โทรศัพท์*" name="PhoneNum" id="PhoneNum" value={info.PhoneNum} onChange={handleChange}/>
+                        </div>
+
+                        <div className="one-form-reg">
+                            <input type="text" placeholder="อีเมล*" name="Email" id="Email" value={info.Email} onChange={handleChange}/>
+                            <br/>
+                        </div>
                     </div>
 
-                    <div className="one-form-reg">
-                        <input type="text" placeholder="อีเมล*" name="Email" id="Email" value={info.Email} onChange={handleChange}/>
-                        <br/>
+                    <div className="scale-tree-reg">
+                        <div className="three-form-reg">
+                            <input type="text" placeholder="บ้านเลขที่*" name="Paddr" id="Paddr" value={psnAddr.Paddr} onChange={handleChange} required/>
+                        </div>
+                        <div className="three-form-reg">
+                            <input type="text" placeholder="ซอย*" name="Palley" id="Palley" value={psnAddr.Palley} onChange={handleChange}/>
+                        </div>
+                        <div className="three-form-reg">
+                            <input type="text" placeholder="ถนน*" name="Pstreet" id="Pstreet" value={psnAddr.Pstreet} onChange={handleChange}/>
+                            <br/>
+                        </div>
                     </div>
 
-                    <div className="three-form-reg">
-                        <input type="text" placeholder="บ้านเลขที่*" name="Paddr" id="Paddr" value={psnAddr.Paddr} onChange={handleChange} required/>
-                    </div>
-                    <div className="three-form-reg">
-                        <input type="text" placeholder="ซอย*" name="Palley" id="Palley" value={psnAddr.Palley} onChange={handleChange}/>
-                    </div>
-                    <div className="three-form-reg">
-                        <input type="text" placeholder="ถนน*" name="Pstreet" id="Pstreet" value={psnAddr.Pstreet} onChange={handleChange}/>
-                        <br/>
-                    </div>
-
-                    <div className="two-form-reg">
-                        <input type="text" placeholder="แขวน/ตำบล*" name="Pdistrict" id="Pdistrict" value={psnAddr.Pdistrict} onChange={handleChange} required/>
-                    </div>
-                    <div className="two-form-reg">
-                        <input type="text" placeholder="เขต/อำเภอ*"  name="Pcity" id="Pcity" value={psnAddr.Pcity} onChange={handleChange} required/>
-                        <br/>
+                    <div className="scale-two-reg">
+                        <div className="two-form-reg">
+                            <input type="text" placeholder="แขวน/ตำบล*" name="Pdistrict" id="Pdistrict" value={psnAddr.Pdistrict} onChange={handleChange} required/>
+                        </div>
+                        <div className="two-form-reg">
+                            <input type="text" placeholder="เขต/อำเภอ*"  name="Pcity" id="Pcity" value={psnAddr.Pcity} onChange={handleChange} required/>
+                            <br/>
+                        </div>
                     </div>
 
-                    <div className="one-form-reg">
-                        <input type="text" placeholder="จังหวัด*" name="Pprovince" id="Pprovince" value={psnAddr.Pprovince} onChange={handleChange} required/>
-                        <br/></div>
+                    <div className="scale-one-reg">
+                        <div className="one-form-reg">
+                            <input type="text" placeholder="จังหวัด*" name="Pprovince" id="Pprovince" value={psnAddr.Pprovince} onChange={handleChange} required/>
+                            <br/></div>
 
-                    <div className="one-form-reg">
-                        <input type="text" placeholder="รหัสไปรษณีย์*" name="Ppostcode" id="Ppostcode" value={psnAddr.Ppostcode} onChange={handleChange} required/>
-                        <br/></div>
+                        <div className="one-form-reg">
+                            <input type="text" placeholder="รหัสไปรษณีย์*" name="Ppostcode" id="Ppostcode" value={psnAddr.Ppostcode} onChange={handleChange} required/>
+                            <br/></div>
+                    
 
                     <button type="submit" className="bttn-ApplyWork">ยืนยันข้อมูลและให้ Hotel Flipper ติดต่อกลับ</button>
+                    </div>
                     {(notification != "")?(<div className="Apply_ERROR">{notification}</div>):""}
                 </Form>
             </div>

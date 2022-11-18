@@ -28,16 +28,17 @@
 
 .Scale-input-Login{
     margin: auto;
-    width: 535px;
+    /* width: 490px; */
+    width: 85%;
     /* height: 250px; */
     background-color: transparent;
 }
 
 .usericon{
-    height: 25px;
-    width: 25px;
+    height: 37px;
+    /* width: 30px; */
     position: absolute;
-    padding: 14px 0 0 25px;
+    padding: 14px 0 0 17px;
 }
 
 ::placeholder {
