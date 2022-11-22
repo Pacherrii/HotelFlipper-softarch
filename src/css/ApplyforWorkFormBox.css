@@ -136,7 +136,6 @@
 
 .scale-tree-reg
 {
-    /* background-color: yellow; */
     display: grid;
     grid-template-columns: auto auto auto;
     /* background-color: transparent; */
