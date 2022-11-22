@@ -7,8 +7,8 @@ import '../css/Login.css';
 const LoginPage =() =>{
     return(
         
-        <div>
-            <div className="bg-roomservice">
+        <div  className="contain-login-page">
+            <div className="bg-roomservice-login">
                 <div className="bg-roomfade-login">
                     <NavbarHotel />
                     <div className="Form-LoginPage">
@@ -17,6 +17,7 @@ const LoginPage =() =>{
                 </div>
             </div>
         </div>
+       
     )
 }
 

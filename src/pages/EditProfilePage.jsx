@@ -7,8 +7,8 @@ import NavbarHotel from "../components/Navbar";
 
 const EditProfilePage =() =>{
     return(
-        <div>
-            <div className="bg-roomservice">
+        <div className="contain-edit-page">
+            <div className="bg-roomservice-edit">
                 <div className="bg-roomfade-edit">
                     <NavbarHotel />
                     <div className="Form-EditPage">

@@ -1,12 +1,14 @@
 import React, { useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import '../css/SignupFormBox.css'
 import logo from "../assets/LOGO-hotelflipper.PNG"
 import usericon from "../assets/user.svg"
 import password from "../assets/password.svg"
+import axios, { HttpStatusCode } from "axios"
 
 const SignupForm = () => {
+    const letgoLogin = useNavigate();
 
     const[personal,setPersonal] = useState({email:"",password:""})
     const[Hoteldata, setHoteldata] = useState({hotelname:"",tel:""})
@@ -25,7 +27,7 @@ const SignupForm = () => {
     const Signup = personal=>{
         const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const regexPass= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,32}$/;
-        console.log(personal) 
+        // console.log(personal) 
             
         if(personal.email==""){
             setNoti("กรุณากรอกอีเมลของท่าน")
@@ -51,22 +53,59 @@ const SignupForm = () => {
         else if(Hoteldata.tel==""){
             setNoti("กรุณากรอกเบอร์โทรศัพท์")
             }
-        else if(!regexTelnum.test(Hoteldata.tel)){
-            setNoti("เบอร์โทรศัพท์กรอกเฉพาะตัวเลขเท่านั้น")}
+        // else if(!regexTelnum.test(Hoteldata.tel)){
+        //     setNoti("เบอร์โทรศัพท์กรอกเฉพาะตัวเลขเท่านั้น")}
             
     }
 
     const AddrSignup = HotelAddr =>{
         const regexPostcode = /^([1-9]\d{4}|\d[1-9]\d{3}|\d{2}[1-9]\d{2}|\d{3}[1-9]\d|\d{4}[1-9])$/
         
-        console.log(HotelAddr)
+        // console.log(HotelAddr)
 
-        if (HotelAddr.zipcode=""){
+        if (HotelAddr.zipcode==""){
             setNoti("กรุณากรอกรหัสไปรษณีย์")
         }
         else if (!regexPostcode.test(HotelAddr.zipcode)) {
             setNoti("กรุณากรอกรหัสไปรษณีย์ที่ถูกต้อง")
         }
+    }
+
+    const UserRegister = async(e) => {
+        const data = {
+            email: personal.email,
+            password: personal.password,
+            h_name: Hoteldata.hotelname,
+            tel: Hoteldata.tel,
+            address: HotelAddr.hotelno,
+            alley: HotelAddr.soi,
+            street: HotelAddr.road,
+            subdistrict: HotelAddr.subDistrict,
+            district: HotelAddr.district,
+            province: HotelAddr.province,
+            postcode: HotelAddr.zipcode
+
+        }
+
+        console.log(data)
+        const res = await axios.post('http://localhost:3001/hotel/signup',data)
+        .then(res=>{
+            console.log(res.data)
+            // if (res.data.status===200){
+            if (res.data.statuscode===200){
+                alert('คุณได้ลงทะเบียนเรียบร้อย')
+                letgoLogin('/LoginPage')}
+          
+            else {
+               alert('อีเมลของคุณมีบัญชีอยู่ในระบบแล้ว กรุณาลองใหม่อีกครั้ง')
+            }
+        })
+        .catch(err=>{
+            if(err.response.status===403){
+                alert('คุณลงทะเบียนไม่สำเร็จ')
+            }
+            console.log('>>>',err)
+        })
     }
 
     const submitHandler = (e) =>{
@@ -76,11 +115,15 @@ const SignupForm = () => {
         AddrSignup(HotelAddr);
         setError(validate(personal));
         setIsSubmit(true)
+        UserRegister()
     }
 
     useEffect(()=>{
         console.log(error)
         console.log(personal)
+        console.log(Hoteldata)
+        console.log(HotelAddr)
+        // console.log(typeof personal.username)
         if(Object.keys(error).lenght=== 0 && isSubmit){
             console.log(personal);  
         }
@@ -187,7 +230,7 @@ const SignupForm = () => {
                         {/* zipcode */}
                         <div className="two-input-box-city">
                             <input type="text" placeholder="รหัสไปรษณีย์*" name="zipcode" id="zipcode" value={HotelAddr.zipcode} onChange={handleChange} required/> 
-                            <br/>
+
                         </div>
                     </div>
                 

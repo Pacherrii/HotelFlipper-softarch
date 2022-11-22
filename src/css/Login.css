@@ -3,6 +3,21 @@
     text-align: center;
 } */
 
+.contain-login-page
+{
+    position: fixed;
+    width: 100%;
+
+}
+
+.bg-roomservice-login{
+    
+    background-image: url('../assets/room1.jpg');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .Form-LoginPage
 {
     margin: auto;

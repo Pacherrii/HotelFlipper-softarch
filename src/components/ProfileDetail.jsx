@@ -12,19 +12,41 @@ const ProfileDetail  = (props) =>{
         tel:hdetail.tel })
 
     useEffect(()=>{
-        axios
-        .get('')
+        detailpf()
+        // axios
+        // .get('')
+        // .then(res=>{
+        //         // setServiceName(res.data)
+        //         // setServiceScope(res.data)
+        //         // setServiceCondition(res.data)
+        //         // setServiceList(res.data)
+        //     setCurrentHdetail(res.data)
+        // })
+        // .catch(err=>{
+        //     console.log(err)
+        // })
+    },[])
+
+    const detailpf = async(e) =>{
+        const res = await axios
+        .get(`http://localhost:3001/hotel/${localStorage.getItem('h_id')}`)
         .then(res=>{
-                // setServiceName(res.data)
-                // setServiceScope(res.data)
-                // setServiceCondition(res.data)
-                // setServiceList(res.data)
-            setCurrentHdetail(res.data)
+
+            console.log(res.data)
+        
+            setCurrentHdetail({
+                email: res.data.email,
+                password:  res.data.password,
+                hotelname:  res.data.h_name,
+                tel: res.data.tel
+            })
+            console.log(hdetail)
         })
         .catch(err=>{
             console.log(err)
         })
-    },[])
+
+    }
         
     return(
         <div>

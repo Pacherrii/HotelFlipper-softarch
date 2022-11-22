@@ -1,3 +1,22 @@
+.contain-edit-page
+{
+    position: fixed;
+    width: 100%;
+    /* width: 100%; 
+    height: 100%; 
+    position: fixed; 
+    left: 0px; 
+    top: 0px; */
+}
+
+.bg-roomservice-edit{
+    
+    background-image: url('../assets/room1.jpg');
+    width:100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .bg-roomfade-edit
 {
     background-image: linear-gradient(45deg, rgba(70, 69, 85, 1) 0%, rgba(247, 25, 136, 0) 100%);

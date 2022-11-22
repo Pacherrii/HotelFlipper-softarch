@@ -1,14 +1,18 @@
 import React, { useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link ,useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import '../css/LoginFormBox.css'
 import logo from "../assets/LOGO-hotelflipper.PNG"
 import usericon from "../assets/user.svg"
 import password from "../assets/password.svg"
+import axios from "axios";
 
 const LoginForm = () => {
+    const letgoHome = useNavigate();
+
     const[personal,setPersonal] = useState({username:"",password:""});
     const[noti,setNoti] = useState("");
+    
 
     const Login = personal=>{
         console.log(personal);
@@ -19,15 +23,49 @@ const LoginForm = () => {
         else if(personal.username!=""&&personal.password==""){
             setNoti("กรุณากรอกรหัสผ่าน")
         }
-        else {
-            console.log("Invalid User");
-            setNoti("อีเมลผู้ใช้งานหรือรหัสผ่านผิด");
-        }
+        // else {
+        //     console.log("Invalid User");
+        //     setNoti("อีเมลผู้ใช้งานหรือรหัสผ่านผิด");
+        // }
     }
 
-    const submitHandler = e=>{
+    const signin =async(e) => {
+        const data = {
+            email: personal.username,
+            password: personal.password
+        }
+        console.log(data)
+        const res = await axios.post('http://localhost:3001/hotel/signin',data)
+        .then(res=>{
+            console.log(res.data)
+            if (res.data.statuscode=== 200){
+                alert('คุณได้เข้าสู่ระบบเรียบร้อย')
+                localStorage.setItem('h_id',res.data.hotel.h_id)
+                setTimeout(() => {
+                    localStorage.removeItem('h_id')
+                    console.log("ไอ้รอม")
+                    letgoHome('/LoginPage')
+                    alert('หมดเวลาเข้าสู่ระบบ กรุณาเข้าสู่ระบบใหม่')
+                }, 300000);
+                // localStorage.setItem('h_id',"6376a69d83b2d2ce47e4ffd1")
+                letgoHome('/')}
+            else {
+                alert('เกิดปัญหา เข้าสู่ระบบไม่สำเร็จ')
+            }
+        })
+        .catch(err=>{
+            if(err.response.status===403){
+                alert('คุณเข้าสู่ระบบไม่สำเร็จ')
+            }
+            console.log('>>>',err)
+        })
+    }
+
+    const submitHandler = async(e)=>{
         e.preventDefault();
         Login(personal);
+        signin();
+        // navigate('/')
     }
 
     const handleChange = e =>{
@@ -35,6 +73,8 @@ const LoginForm = () => {
         setPersonal({...personal,[name]:value})
     }
 
+      
+     
 
 
     return(
@@ -63,13 +103,12 @@ const LoginForm = () => {
                             </botton>
                         </Link>
 
-                        <button type="submit" className="bttn-Login">เข้าสู่ระบบ Hotel Flipper</button>
+                        <button type="submit" className="bttn-Login" onClick={submitHandler}>เข้าสู่ระบบ Hotel Flipper</button>
                         <Link to="/SignupPage"><button type="submit" className="bttn-gotoSignup">ลงทะเบียนสมาชิกใหม่</button></Link>
                     </div>
                 </Form>
                 
                 {(noti != "")?(<div className="Login_ERROR">{noti}</div>):""}
-                
             </div>
         </div>
     )

@@ -9,7 +9,7 @@ import HotelDetaildemo from "./HotelDetaildemo";
 import HotelAddressdemo from "./HotelAddressdemo";
 // import EditProfileAddress from "../components/EditProfileAddress";
 
-const ProfilePage = () =>{
+const ProfilePage = (props) =>{
     // const [editMode, setEditMode] = useState(false)
 
     // const changeTofalse = () => {

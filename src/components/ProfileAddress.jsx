@@ -1,8 +1,9 @@
 import React, { useState,useEffect} from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import '../css/ProfileAddressBox.css'
 import location from "../assets/location.svg";
 import axios from 'axios'
+
 
 
 const ProfileAddress = (props) =>{
@@ -16,18 +17,51 @@ const ProfileAddress = (props) =>{
         province:haddress.province,
         zipcode:haddress.zipcode })
 
+    const letgotoLogin = useNavigate()
+
     useEffect(()=>{
-        axios
-        .get('')
+        addresspf()
+        // if (localStorage.getItem("h_id")===""){
+        //     letgotoLogin('/LoginPage')
+        // }
+        // axios
+        // .get(`http://localhost:3001/hotel/${localStorage.getItem('h_id')}`)
+        // .then(res=>{
+        //     console.log(res.data)
+        //     setCurrentHaddress(res.data)
+        // })
+        // .catch(err=>{
+        //     console.log(err)
+        // })
+    },[])
+    
+
+    const addresspf =async(e) =>{
+        const res = await axios
+        .get(`http://localhost:3001/hotel/${localStorage.getItem('h_id')}`)
         .then(res=>{
+
+            console.log(res.data)
+            // haddress.map((key,value)=> {
+            //     haddress[key] = res.data[key]
                 
-            setCurrentHaddress(res.data)
+            // }) 
+            setCurrentHaddress({
+                hotelno: res.data.address,
+                soi: res.data.alley,
+                road: res.data.street,
+                subDistrict: res.data.subdistrict,
+                district: res.data.district,
+                province: res.data.province,
+                zipcode: res.data.postcode
+
+            })
+            console.log(haddress)
         })
         .catch(err=>{
             console.log(err)
         })
-    },[])
-    
+    }
     return(
         <div>
             <div className="Box-HotelProfile-Addr">
@@ -38,13 +72,14 @@ const ProfileAddress = (props) =>{
                     <div className="Box-location-hotel">
                         <img src={location} alt="#" height = {40}/>
                         <div className="Hotel-Location-AD">
-                            {currentHaddress.hotelno},&nbsp;
-                             {currentHaddress.soi},&nbsp; 
-                             {currentHaddress.road},&nbsp;
-                             {currentHaddress.subDistrict},&nbsp;
-                             {currentHaddress.district},&nbsp;
-                             {currentHaddress.province},&nbsp; 
-                             {currentHaddress.zipcode}
+                            {currentHaddress.hotelno},
+                            &nbsp;
+                            ซอย{currentHaddress.soi},<br/>
+                            ถนน{currentHaddress.road},&nbsp;
+                            แขวง/ตำบล {currentHaddress.subDistrict},<br/> 
+                            เขต/อำเภอ {currentHaddress.district},&nbsp;
+                            จังหวัด {currentHaddress.province},<br/> 
+                            {currentHaddress.zipcode}
                         </div>
                     </div>
                     <div className="for-bttn-edit-HotelAD">
